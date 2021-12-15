@@ -1,9 +1,0 @@
-name: sample-python
-services:
-- environment_slug: python
-  github:
-    branch: main
-    deploy_on_push: true
-    repo: endpoint-lcr
-  name: app
-  output_dir: dist/apps/front

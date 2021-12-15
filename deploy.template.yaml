@@ -1,8 +1,0 @@
-spec:
-  name: app
-  services:
-  - environment_slug: python
-    git:
-      branch: main
-      repo_clone_url: https://github.com/TelmoFrancisco/endpoint-lcr.git
-    name: app
