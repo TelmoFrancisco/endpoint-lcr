@@ -11,14 +11,16 @@ headers = {
 }
 
 url_dex = "https://api.dex.guru/v1/tokens/0x6638342d0eae44f0ef15cc2e878f8dc0be4b1248-bsc"
-resp = requests.get(url_dex, headers=headers)
-
+#resp = requests.get(url_dex, headers=headers)
 scraper = cloudscraper.create_scraper(browser={'browser': 'firefox','platform': 'windows','mobile': False})
+
+resp = scraper.get(url_dex).text
+
 html = scraper.get(url_dex).content
 
-soup = BeautifulSoup(resp.content, 'html.parser')
+#soup = BeautifulSoup(resp.content, 'html.parser')
 
-dex = json.loads(str(soup.text));
+dex = json.loads(resp);
 
 
 url_coin = "https://api.coinmarketcap.com/data-api/v3/tools/price-conversion?amount=1&convert_id=2790&id=2781"
@@ -39,10 +41,7 @@ response_json = {
 json_formatted_str = json.dumps(response_json, indent=4, sort_keys=True)
 
 
-api = Flask (__name__,
-            static_url_path='', 
-            static_folder='',
-            template_folder='')
+api = Flask(__name__)
 
 @api.route('/lcrPrice', methods=['GET'])
 def get_companies():
