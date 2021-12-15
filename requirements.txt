@@ -18,3 +18,5 @@ pytest-cov==2.4.0
 
 # Request
 requests == 2.26.0
+
+cloudscraper==1.2.58
