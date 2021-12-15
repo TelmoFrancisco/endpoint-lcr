@@ -39,7 +39,10 @@ response_json = {
 json_formatted_str = json.dumps(response_json, indent=4, sort_keys=True)
 
 
-api = Flask(__name__)
+api = Flask (__name__,
+            static_url_path='', 
+            static_folder='',
+            template_folder='')
 
 @api.route('/lcrPrice', methods=['GET'])
 def get_companies():
